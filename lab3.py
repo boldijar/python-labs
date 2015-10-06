@@ -50,7 +50,8 @@ def properties1():
             if currentLength > maxLength:
                 firstIndex = i
                 maxLength = currentLength
-
+    if maxLength == 0:
+        return list[firstIndex:firstIndex]
     return list[firstIndex:firstIndex + maxLength + 1]
 
 """ this method will look for the longest sequence of numbers where all of them
