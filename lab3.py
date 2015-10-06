@@ -1,9 +1,9 @@
 import sys
 
-
-global lista
-lista = []
+global list
+list = []
 global size
+size = 0
 
 """ this function will show us the menu, and will return the option selected """
 def showMenu():
@@ -16,11 +16,11 @@ def showMenu():
 """ this function will read the size and all the numbers and add it to the list"""
 """ but first, we are going to empty the list """
 def readNumbers():
-    lista[:]=[]
+    list[:]=[]
     size=int(input('How many numbers? '))
     print 'Read your numbers! '
     for i in range(0,size):
-        lista.append(int(input('')))
+        list.append(int(input('')))
 
 """ this method will return true if number is prime, false if not """
 def numberIsPrime(n):
@@ -40,7 +40,7 @@ def properties1():
         """ searching for a sequence from the i index """
         currentLength = 0
         for j in range(i+1,size):
-            difference = abs(lista[j] - lista[j-1])
+            difference = abs(list[j] - list[j-1])
             if numberIsPrime(difference):
                 currentLength = currentLength + 1
             else:
@@ -49,7 +49,7 @@ def properties1():
                 firstIndex = i
                 maxLength = currentLength
 
-    return lista[firstIndex:firstIndex + maxLength + 1]
+    return list[firstIndex:firstIndex + maxLength + 1]
 
 """ this method will look for the longest sequence of numbers where all of them
 are >=0 & <= 10"""        
@@ -60,7 +60,7 @@ def properties2():
         """ searching for a sequence from the i index """
         currentLength = 0
         for j in range(i,size):
-            if lista[j] <= 10 and lista[j] >= 0:
+            if list[j] <= 10 and list[j] >= 0:
                 currentLength = currentLength + 1
             else:
                 break
@@ -68,7 +68,7 @@ def properties2():
                 firstIndex = i
                 maxLength = currentLength
 
-    return lista[firstIndex:firstIndex + maxLength]    
+    return list[firstIndex:firstIndex + maxLength]    
 
 
 """ this is the main loop, where you check for menu options """
@@ -84,3 +84,4 @@ def main():
         if option == 4:
             sys.exit()
     
+main()
