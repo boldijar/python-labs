@@ -40,7 +40,7 @@ def properties1():
         """ searching for a sequence from the i index """
         currentLength = 0
         for j in range(i+1,size):
-            difference = lista[j] - lista[j-1]
+            difference = abs(lista[j] - lista[j-1])
             if numberIsPrime(difference):
                 currentLength = currentLength + 1
             else:
@@ -49,14 +49,26 @@ def properties1():
                 firstIndex = i
                 maxLength = currentLength
 
-    print lista[firstIndex:firstIndex + maxLength + 1]
-            
+    return lista[firstIndex:firstIndex + maxLength + 1]
 
+""" this method will look for the longest sequence of numbers where all of them
+are >=0 & <= 10"""        
+def properties2():
+    maxLength = 0
+    firstIndex = 0
+    for i in range(0,size) :
+        """ searching for a sequence from the i index """
+        currentLength = 0
+        for j in range(i,size):
+            if lista[j] <= 10 and lista[j] >= 0:
+                currentLength = currentLength + 1
+            else:
+                break
+            if currentLength > maxLength:
+                firstIndex = i
+                maxLength = currentLength
 
-
-lista = [1,3,4,5,7,9]
-size = len(lista)
-properties1()
+    return lista[firstIndex:firstIndex + maxLength]    
 
 
 """ this is the main loop, where you check for menu options """
@@ -65,6 +77,10 @@ def main():
         option = showMenu()
         if option == 1:
             readNumbers()
+        if option == 2:
+            properties1()
+        if option == 3:
+            properties2()
         if option == 4:
             sys.exit()
     
