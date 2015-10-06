@@ -31,12 +31,40 @@ def numberIsPrime(n):
             return False
     return True
 
+""" this method will look for the longest sequence of numbers where
+the difference of every 2 numbers is a prime number """
+def properties1():
+    maxLength = 0
+    firstIndex = 0
+    for i in range(0,size) :
+        """ searching for a sequence from the i index """
+        currentLength = 0
+        for j in range(i+1,size):
+            difference = lista[j] - lista[j-1]
+            if numberIsPrime(difference):
+                currentLength = currentLength + 1
+            else:
+                break
+            if currentLength > maxLength:
+                firstIndex = i
+                maxLength = currentLength
+
+    print lista[firstIndex:firstIndex + maxLength + 1]
+            
+
+
+
+lista = [1,3,4,5,7,9]
+size = len(lista)
+properties1()
+
 
 """ this is the main loop, where you check for menu options """
-while True:
-    option = showMenu()
-    if option == 1:
-        readNumbers()
-    if option == 4:
-        sys.exit()
+def main():
+    while True:
+        option = showMenu()
+        if option == 1:
+            readNumbers()
+        if option == 4:
+            sys.exit()
     
