@@ -75,11 +75,12 @@ def properties2(list):
 
 """ this is the main loop, where you check for menu options """
 def main():
-    
+
+    list = []
     while True:
         option = showMenu()
         if option == 1:
-            readNumbers()
+            list = readNumbers()
         if option == 2:
             print properties1(list)
         if option == 3:
