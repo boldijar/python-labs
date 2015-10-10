@@ -20,6 +20,7 @@ Your option:
 ```
 
 Here you need to choose what option do you want, by writting the number of the option.
+You can **only** use the numbers 1, 2, 3, 4.
 
 ## Read the numbers
 First you need to read how many number you need, and those numbers.
