@@ -35,7 +35,7 @@ def numberIsPrime(n):
 
 """ this method will look for the longest sequence of numbers where
 the difference of every 2 numbers is a prime number """
-def properties1():
+def properties1(list):
     maxLength = 0
     firstIndex = 0
     for i in range(0,len(list)) :
@@ -56,7 +56,7 @@ def properties1():
 
 """ this method will look for the longest sequence of numbers where all of them
 are >=0 & <= 10"""        
-def properties2():
+def properties2(list):
     maxLength = 0
     firstIndex = 0
     for i in range(0,len(list)) :
@@ -81,9 +81,9 @@ def main():
         if option == 1:
             readNumbers()
         if option == 2:
-            print properties1()
+            print properties1(list)
         if option == 3:
-            print properties2()
+            print properties2(list)
         if option == 4:
             sys.exit()
 
