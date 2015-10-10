@@ -1,6 +1,6 @@
 # Lab 3- Documentation
 
-With this simple pythonby script you can:
+With this simple python script you can:
 
  * See a menu with options
  * read numbers
