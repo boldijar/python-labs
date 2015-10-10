@@ -19,6 +19,7 @@ def readNumbers():
     print 'Read your numbers! '
     for i in range(0,size):
         list.append(int(input('')))
+    return list
 
 """ this method will return true if number is prime, false if not """
 def numberIsPrime(n):
