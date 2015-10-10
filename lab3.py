@@ -3,6 +3,7 @@ import sys
 
 """ this function will show us the menu, and will return the option selected """
 def showMenu():
+    print '\n\n'
     print '1) Read numbers'
     print '2) Longest sequence of numbers where the difference of every 2 number is a prime number'
     print '3) Longest sequence of numbers where the numbers are in [0;10]'
@@ -89,4 +90,9 @@ def main():
             sys.exit()
 
 
-main()
+try:
+    main()
+except:
+    print '\n\nI guess that you didn\'t used the numbers that you should.'
+    print 'Please read the documentation! \nhttps://github.com/BoldijarPaul/python-labs/blob/master/lab3.md '
+    main()
