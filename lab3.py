@@ -1,7 +1,5 @@
 import sys
 
-global list
-list = []
 
 """ this function will show us the menu, and will return the option selected """
 def showMenu():
@@ -14,7 +12,7 @@ def showMenu():
 """ this function will read the size and all the numbers and add it to the list"""
 """ but first, we are going to empty the list """
 def readNumbers():
-    list[:]=[]
+    list=[]
     size=int(input('How many numbers? '))
     print 'Read your numbers! '
     for i in range(0,size):
@@ -77,6 +75,7 @@ def properties2(list):
 
 """ this is the main loop, where you check for menu options """
 def main():
+    
     while True:
         option = showMenu()
         if option == 1:
