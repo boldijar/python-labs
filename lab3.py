@@ -71,10 +71,7 @@ def properties2():
                 firstIndex = i
                 maxLength = currentLength
 
-    newList= list[firstIndex:firstIndex + maxLength]
-    if len (newList) == 0:
-        """ empty list """
-        return "No result"  
+    return list[firstIndex:firstIndex + maxLength] 
 
 
 """ this is the main loop, where you check for menu options """
