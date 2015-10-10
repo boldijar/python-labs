@@ -6,8 +6,8 @@ list = []
 """ this function will show us the menu, and will return the option selected """
 def showMenu():
     print '1) Read numbers'
-    print '2) Properties 1'
-    print '3) Properties 2'
+    print '2) Longest sequence of numbers where the difference of every 2 number is a prime number'
+    print '3) Longest sequence of numbers where the numbers are in [0;10]'
     print '4) Exit application'
     return int(input('Your option: '))
     
