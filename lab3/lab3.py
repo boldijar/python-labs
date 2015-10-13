@@ -95,7 +95,7 @@ def showDocumentationMenu():
     print 'Do you want to go to the online documentation? Write Y if yes, if not, anything else.'
     answer = raw_input("Answer: ")
     if answer == ('y' or 'Y'):
-        webbrowser.open('https://github.com/BoldijarPaul/python-labs/blob/master/lab3.md')
+        webbrowser.open('https://github.com/BoldijarPaul/python-labs/blob/master/lab3/lab3.md')
 
 """ this method will check for errors, and call itself again """
 def tryMain():
