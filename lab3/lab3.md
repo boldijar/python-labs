@@ -58,3 +58,22 @@ Choosing the last option will close the application.
 If you use numbers that are not in [10000;10000], or unwanted characters you may get an error, which it will be caught and you will see a menu where you can open the documentation, only if you write 'Y' or 'y', if you write anything else the documentation won't open, In both cases the application will restart.
 
 
+### Steps !
+
+|            | User           | Program  | Description |
+| ------------- |:-------------:| -----:  | -----:|
+| a		|  		| 	 1) Read numbers 2) Longest sequence of numbers where the difference of every 2 number is a prime number 3) Longest sequence of numbers where the numbers are in [0;10] 4) Exit application Your option:  			|The start message|
+| 	b	|   	1	|	  | Choose that you want to read numbers|
+|c| |How many numbers? |Read how many numbers |
+|d| 3| | |
+|e||Read your numbers! |
+|f| 2 4 10||Read all 3 numbers
+|g||1) Read numbers 2) Longest sequence of numbers where the difference of every 2 number is a prime number 3) Longest sequence of numbers where the numbers are in [0;10] 4) Exit application Your option: | |
+|h| 2 | | choose that you want to see the first exercise|
+|i| |[2,4]|The solution|
+|j||1) Read numbers 2) Longest sequence of numbers where the difference of every 2 number is a prime number 3) Longest sequence of numbers where the numbers are in [0;10] 4) Exit application Your option: | |
+|k| 3 | | choose that you want to see the second exercise|
+|l| |[2,4,10]|The solution|
+
+
+
