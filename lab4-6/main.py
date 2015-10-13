@@ -10,6 +10,6 @@ def readBill():
     return createBill(type,cost)
 
 
-print readBill().cost
+
 
     
