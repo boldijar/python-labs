@@ -1,4 +1,4 @@
-class ApartamentType:
+class BillType:
     Water = 1
     Sewerage = 2
     Gas = 3
