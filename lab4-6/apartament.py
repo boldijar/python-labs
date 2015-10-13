@@ -1,5 +1,8 @@
 from apartament_type import ApartamentType
 
 class Apartament:
-    type = ApartamentType.Water
-    cost = 0
+
+    def __init__(self, type, cost):
+        self.type = type
+        self.cost = cost
+      
