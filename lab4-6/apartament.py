@@ -28,7 +28,15 @@ class Apartaments:
     def getApartamentsCount(self):
         return len(self.all)
 
+    def clearApartamentBills(self,apartamentIndex):
+        self.all[apartamentIndex].bills = []
+
+    def clearApartamentCertainBills(apartamentIndex,billType):
+        
+    def clearCertainBillsFromAllApartaments(self,billType):
+        for i in range (0,len(self.all)):
+            
+        
+
 apartaments = Apartaments()
 
-print apartaments.getApartamentCost(2)
-      
