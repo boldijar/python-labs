@@ -12,6 +12,9 @@ class Apartament:
 
 class Apartaments:
 
+    def __init__(self,all):
+        self.all = all
+        
     def __init__(self):
         self.all = []
         for i in range (0,100):
@@ -25,6 +28,14 @@ class Apartaments:
             cost = cost + apartament.bills[i].cost
         return cost
 
+    def getApartamentsWithCostGreatherThan(self,cost):
+        list = []
+        for apartamentIndex in range(0,len(self.all)) :
+            if getApartamentCost(apartamentIndex) > cost:
+                list.append(self.all[apartamentIndex])
+        return Apartaments(list)
+
+    
     def getApartamentsCount(self):
         return len(self.all)
 
@@ -32,9 +43,16 @@ class Apartaments:
         self.all[apartamentIndex].bills = []
 
     def clearApartamentCertainBills(apartamentIndex,billType):
-        
+        apartament = self.all[apartamentIndex]
+        for i in range (0,len(apartament.bills)):
+            bill = apartament.bills[i]
+            if bill.type == billType:
+                bill.pop(i)
+                i = i - 1
+                
     def clearCertainBillsFromAllApartaments(self,billType):
-        for i in range (0,len(self.all)):
+        for apartamentIndex in range (0,len(self.all)):
+            clearApartamentCertainBills(apartamentIndex,billType)
             
         
 
