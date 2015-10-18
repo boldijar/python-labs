@@ -3,3 +3,5 @@ class BillType:
     Sewerage = 2
     Gas = 3
     Other = 4
+
+    array = ['Water','Sewerage','Gas','Other']

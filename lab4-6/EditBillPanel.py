@@ -1,6 +1,6 @@
 import wx
 from apartament_controller import ApartamentController
-
+from bill_type import BillType
 
 class EditBillPanel(wx.Panel):
 
@@ -16,8 +16,8 @@ class EditBillPanel(wx.Panel):
 
 
         wx.StaticText(self, label="Bill type",style=wx.ALIGN_CENTRE,pos=(10,90)) 
-        self.billType = wx.ComboBox(self, pos=(10, 110), choices=['Water','Sewerage','Gas','Other'] ,style=wx.CB_READONLY)
-        self.billType.SetStringSelection('Water')
+        self.billType = wx.ComboBox(self, pos=(10, 110), choices=BillType.array ,style=wx.CB_READONLY)
+        self.billType.SetStringSelection(BillType.array[0])
 
         wx.StaticText(self, label="Bill cost",style=wx.ALIGN_CENTRE,pos=(10,150))
         self.billCost=wx.TextCtrl(self,pos=(10,170),size=(50,20))

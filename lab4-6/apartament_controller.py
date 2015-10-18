@@ -95,16 +95,15 @@ class ApartamentController:
     def clearApartamentBills(self,apartamentIndex):
         self.all[apartamentIndex].bills = []
 
-    def clearApartamentCertainBills(apartamentIndex,billType):
+    def clearApartamentCertainBills(self,apartamentIndex,billType):
         apartament = self.all[apartamentIndex]
-        for i in range (0,len(apartament.bills)):
-            bill = apartament.bills[i]
+        for bill in apartament.bills[:]:
             if bill.type == billType:
-                bill.pop(i)
-                i = i - 1
+                apartament.bills.remove(bill)
+                
                 
     def clearCertainBillsFromAllApartaments(self,billType):
         for apartamentIndex in range (0,len(self.all)):
-            clearApartamentCertainBills(apartamentIndex,billType)
+            self.clearApartamentCertainBills(apartamentIndex,billType)
             
         
