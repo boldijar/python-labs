@@ -14,7 +14,7 @@ class Apartament:
     def addBill(self,bill):
         self.bills.append(bill)
 
-class Apartaments:
+class ApartamentController:
 
     def __init__(self,all):
         self.all = all
@@ -25,6 +25,10 @@ class Apartaments:
             apartament = Apartament(i)
             self.all.append(apartament)
 
+    def addBill(self,apartamentNumber,billType,billCost):
+        bill = Bill(billType,billCost)
+        self.get(apartamentNumber).addBill(bill)
+        
     def getBillTypeName(self,position):
         if position == BillType.Water :
             return "Water"
@@ -104,6 +108,3 @@ class Apartaments:
             clearApartamentCertainBills(apartamentIndex,billType)
             
         
-
-apartaments = Apartaments()
-

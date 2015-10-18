@@ -1,16 +1,12 @@
 import wx
-from bill import Bill
-from bill import BillMethods
-from bill_type import BillType
-from apartament import Apartament
-from apartament import Apartaments
+from apartament_controller import ApartamentController
 
 
 class AddBillPanel(wx.Panel):
 
-    def __init__(self,parent,apartaments,position,size):
+    def __init__(self,parent,apartamentController,position,size):
         super(AddBillPanel,self).__init__(parent,pos=position,size=size)
-        self.apartaments = apartaments
+        self.apartamentController = apartamentController
         wx.StaticText(self, label="Apartament number (1-100)", style=wx.ALIGN_CENTRE,pos=(10,10))
         self.apartamentNumber=wx.TextCtrl(self,pos=(10,30),size=(50,20))
 
@@ -28,8 +24,7 @@ class AddBillPanel(wx.Panel):
         apNumber = int(self.apartamentNumber.GetValue())
         billCost=int(self.billCost.GetValue())
         billType=self.billType.GetCurrentSelection()+1
-        bill = Bill(billType,billCost)
-        self.apartaments.get(apNumber).addBill(bill)
+        self.apartamentController.addBill(apNumber,billType,billCost)
         dlg = wx.MessageDialog(None, "Bill added!", "Info", wx.OK | wx.ICON_INFORMATION)
         dlg.ShowModal()
         dlg.Destroy()
