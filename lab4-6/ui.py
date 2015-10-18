@@ -20,7 +20,7 @@ class windowClass(wx.Frame):
         super(windowClass,self).__init__(parent,title=title,size=(600,400))
 
         # add panel
-        self.panel = wx.Panel(self)
+        self.panel = wx.Panel(self,size=(100,100))
 
         wx.StaticText(self.panel, label="Apartament number (1-100)", style=wx.ALIGN_CENTRE,pos=(10,10))
         self.apartamentNumber=wx.TextCtrl(self.panel,pos=(10,30),size=(50,20))

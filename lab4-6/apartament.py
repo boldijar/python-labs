@@ -35,14 +35,22 @@ class Apartaments:
         if position == BillType.Other:
             return "Other"
         return "error"
-        
+
+    def editBill(self,apartamentNumber,billIndex,newBillCost,newBillType):
+        for i in range (0,len(self.all)):
+            apartament = self.all[i]
+            if apartament.number == apartamentNumber:
+                apartament.bills[billIndex].cost=newBillCost
+                apartament.bills[billIndex].type=newBillType
+                
+            
     def getAllApartamentsAndBills(self):
         result = ""
         for i in range (0,len(self.all)):
             apartament = self.all[i]
             for j in range (0,len(apartament.bills)):
                 bill = apartament.bills[j]
-                result = result + "Apartament #" + str(apartament.number)+ " , Bill type: "+self.getBillTypeName(bill.type) +" cost: "+str(bill.cost) +"\n"            
+                result = result + "Apartament #" + str(apartament.number)+ " , Bill id: "+str(j)+ " , type: "+self.getBillTypeName(bill.type) +" , cost: "+str(bill.cost) +"\n"            
         return result
     
     def get(self,index):
