@@ -1,4 +1,5 @@
 from bill import Bill
+from bill_type import BillType
 
 class Apartament:
 
@@ -24,7 +25,26 @@ class Apartaments:
             apartament = Apartament(i)
             self.all.append(apartament)
 
-
+    def getBillTypeName(self,position):
+        if position == BillType.Water :
+            return "Water"
+        if position == BillType.Sewerage:
+            return "Sewerage"
+        if position == BillType.Gas:
+            return "Gas"
+        if position == BillType.Other:
+            return "Other"
+        return "error"
+        
+    def getAllApartamentsAndBills(self):
+        result = ""
+        for i in range (0,len(self.all)):
+            apartament = self.all[i]
+            for j in range (0,len(apartament.bills)):
+                bill = apartament.bills[j]
+                result = result + "Apartament #" + str(apartament.number)+ " , Bill type: "+self.getBillTypeName(bill.type) +" cost: "+str(bill.cost) +"\n"            
+        return result
+    
     def get(self,index):
         return self.all[index]
     

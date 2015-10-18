@@ -1,5 +1,17 @@
 import wx
+from bill import Bill
+from bill import BillMethods
+from bill_type import BillType
+from apartament import Apartament
+from apartament import Apartaments
 
+apartaments = Apartaments()
+
+def addBill(apartamentNumber,billType,cost):
+    bill = Bill(billType,cost)
+    apartaments.get(apartamentNumber).addBill(bill)
+
+addBill(2,2,100)
 
 class windowClass(wx.Frame):
 
@@ -21,11 +33,22 @@ class windowClass(wx.Frame):
         self.billType.SetStringSelection('Water')
 
         self.addButton = wx.Button(self.panel, label='Add bill', pos=(20, 150))
-        self.addButton.Bind(wx.EVT_BUTTON, self.OnClick)
+        self.addButton.Bind(wx.EVT_BUTTON, self.OnAddBill)
+
+        wx.Button(self.panel, label='Show bills', pos=(200, 10)).Bind(wx.EVT_BUTTON, self.OnShowBills)
         
         self.Show()
 
-    def OnClick(self,e):
+    def OnShowBills(self,e):
+        dlg = wx.MessageDialog(None, apartaments.getAllApartamentsAndBills(), "Bills", wx.OK | wx.ICON_INFORMATION)
+        dlg.ShowModal()
+        dlg.Destroy()
+        
+    def OnAddBill(self,e):
+        apNumber = int(self.apartamentNumber.GetValue())
+        billCost=int(self.billCost.GetValue())
+        billType=self.billType.GetCurrentSelection()+1
+        addBill(apNumber,billType,billCost)
         dlg = wx.MessageDialog(None, "Bill added!", "Info", wx.OK | wx.ICON_INFORMATION)
         dlg.ShowModal()
         dlg.Destroy()

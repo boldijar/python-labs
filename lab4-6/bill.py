@@ -1,4 +1,4 @@
-    from bill_type import BillType
+from bill_type import BillType
 
 class Bill:
 
