@@ -70,10 +70,17 @@ class ApartamentController:
     def getApartamentsWithCostGreatherThan(self,cost):
         list = []
         for apartamentIndex in range(0,len(self.all)) :
-            if getApartamentCost(apartamentIndex) > cost:
+            if self.getApartamentCost(apartamentIndex) > cost:
                 list.append(self.all[apartamentIndex])
-        return Apartaments(list)
+        return list
 
+    def getApartamentsWithCostGreatherThanAsString(self,cost):
+        result = ""
+        apartaments = self.getApartamentsWithCostGreatherThan(cost)
+        for i in range (0,len(apartaments)):
+            result = result + "Apartament #"+str(apartaments[i].number)+" , cost: "+str(self.getApartamentCost(apartaments[i].number)) +"\n" 
+        return result
+        
     
     def getApartamentsCount(self):
         return len(self.all)
