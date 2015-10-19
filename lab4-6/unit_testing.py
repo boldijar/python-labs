@@ -1,5 +1,6 @@
 import unittest
 from apartament_controller import ApartamentController
+from validator import IntValidator
 from bill_type import BillType
 class TestController(unittest.TestCase):
 
@@ -100,8 +101,10 @@ class TestController(unittest.TestCase):
 
  
 
-
-    
+    def testIntValidator(self):
+        self.assertEqual(IntValidator.valid("123",0,200),True)
+        self.assertEqual(IntValidator.valid("lala",0,200),False)
+        self.assertEqual(IntValidator.valid("123",0,50),False)
 
     
 if __name__ == '__main__':

@@ -30,6 +30,7 @@ The every other integer value must be in [0,10000]
 * used an MVC arhitecture ![MVC](https://raw.githubusercontent.com/BoldijarPaul/python-labs/master/lab4-6/mvc.png)
 * Unit testing made using the [unittest](https://docs.python.org/2/library/unittest.html) framework from Python. Every method from the controller is tested.
 * used GUI framework [WxPython]( http://www.wxpython.org)
+* input validation provided by static methods from the [validator](https://github.com/BoldijarPaul/python-labs/blob/master/lab4-6/validator.py) module.
 
 
 [Requirements](https://raw.githubusercontent.com/BoldijarPaul/python-labs/master/lab4-6/requirements.PNG)
