@@ -8,7 +8,6 @@ Now you will see something like this
 
 ![Image](https://raw.githubusercontent.com/BoldijarPaul/python-labs/master/lab4-6/ss1.PNG)
 
-
 The apartament number can only be greater than 0 and lower than 101.
 The every other integer value must be in [0,10000]
 
@@ -26,6 +25,11 @@ The every other integer value must be in [0,10000]
 
 
 
+### Tehnical details
+
+* used an MVC arhitecture ![MVC](https://raw.githubusercontent.com/BoldijarPaul/python-labs/master/lab4-6/mvc.png)
+* Unit testing made using the [unittest](https://docs.python.org/2/library/unittest.html) framework from Python. Every method from the controller is tested.
+* used GUI framework [WxPython]( http://www.wxpython.org)
 
 
 [Requirements](https://raw.githubusercontent.com/BoldijarPaul/python-labs/master/lab4-6/requirements.PNG)

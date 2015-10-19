@@ -93,6 +93,9 @@ class ApartamentController:
                 bill = apartament.bills[j];
                 if bill.type == billType:
                     list.append(bill)
+        return list
+
+    
     def getBillsCost(self,bills):
         cost = 0
         for i in range (0,len(bills)):
