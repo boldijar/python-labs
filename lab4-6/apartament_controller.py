@@ -94,6 +94,13 @@ class ApartamentController:
                 if bill.type == billType:
                     list.append(bill)
         return list
+    def getCertainBillsFromAllApartamentsString(self,billType):
+        list = self.getCertainBillsFromAllApartaments(billType)
+        result= "Bills of type "+str(self.getBillTypeName(billType))+": \n"
+        for bill in list[:]:
+            result = result + "Cost: "+str(bill.cost)
+            result = result +"\n"
+        return result
 
     
     def getBillsCost(self,bills):
