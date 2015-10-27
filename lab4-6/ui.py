@@ -6,7 +6,7 @@ from DeleteAllApartamentBillsPanel import *
 from DeleteCertainBillsPanel import *
 from FindApartamentsByCostPanel import *
 from FindCertainBillsOfAllApartaments import *
-
+from ClearCertainBillsOfAllApartaments import *
 apartamentController = ApartamentController()
         
 class windowClass(wx.Frame):
@@ -21,6 +21,7 @@ class windowClass(wx.Frame):
         DeleteCertainBillsPanel(self,apartamentController,(460,105),(240,100))
         FindApartamentsByCostPanel(self,apartamentController,(0,305),(250,100))
         FindCertainBillsOfAllApartaments(self,apartamentController,(255,305),(250,100))
+        ClearCertainBillsOfAllApartaments(self,apartamentController,(510,305),(250,100))
 
         wx.Button(addBillPanel, label='Show bills', pos=(200, 10)).Bind(wx.EVT_BUTTON, self.OnShowBills)
         
