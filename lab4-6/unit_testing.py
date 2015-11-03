@@ -106,6 +106,46 @@ class TestController(unittest.TestCase):
         self.assertEqual(IntValidator.valid("lala",0,200),False)
         self.assertEqual(IntValidator.valid("123",0,50),False)
 
-    
+    def testDeleteAllBillsFromApartamentsInRanget(self):
+        apartamentController = ApartamentController()
+        apartamentController.addBill(0,BillType.Water,100)
+        apartamentController.addBill(0,BillType.Water,5)
+        apartamentController.addBill(1,BillType.Water,100)
+        apartamentController.addBill(1,BillType.Water,5)
+        apartamentController.addBill(2,BillType.Water,100)
+        apartamentController.addBill(2,BillType.Water,5)
+        apartamentController.addBill(3,BillType.Water,100)
+        apartamentController.addBill(4,BillType.Water,100)
+        apartamentController.addBill(4,BillType.Water,5)
+        apartamentController.deleteAllBillsFromApartamentsInRange(2,3)
+        self.assertEqual(len(apartamentController.all[2].bills),0)
+        self.assertEqual(len(apartamentController.all[3].bills),0)
+        self.assertEqual(len(apartamentController.all[4].bills),2)
+
+    def testGetBillsCostOfType(self):
+        apartamentController = ApartamentController()
+        apartamentController.addBill(0,BillType.Water,100)
+        apartamentController.addBill(0,BillType.Gas,10)
+        apartamentController.addBill(1,BillType.Water,100)
+        apartamentController.addBill(1,BillType.Gas,10)
+        apartamentController.addBill(2,BillType.Water,100)
+        apartamentController.addBill(2,BillType.Water,5)
+        apartamentController.addBill(3,BillType.Gas,80)
+        apartamentController.addBill(4,BillType.Water,100)
+        apartamentController.addBill(4,BillType.Water,5)
+        self.assertEqual(apartamentController.getBillsCostOfType(BillType.Gas),100)
+
+    def testUndo(self):
+        apartamentController = ApartamentController()
+        apartamentController.addBill(0,BillType.Water,100)
+        apartamentController.undo()
+        self.assertEqual(apartamentController.getBillsCostOfType(BillType.Water),0)
+        apartamentController.addBill(0,BillType.Water,50)
+        apartamentController.addBill(0,BillType.Water,100)
+        apartamentController.addBill(0,BillType.Water,200)
+        apartamentController.addBill(0,BillType.Water,300)
+        apartamentController.undo()
+        apartamentController.undo()
+        self.assertEqual(apartamentController.getBillsCostOfType(BillType.Water),150)
 if __name__ == '__main__':
     unittest.main()

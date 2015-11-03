@@ -1,7 +1,7 @@
 import wx
 from apartament_controller import ApartamentController
 from bill_type import BillType
-
+from validator import IntValidator
 
 class AddBillPanel(wx.Panel):
 
@@ -22,6 +22,17 @@ class AddBillPanel(wx.Panel):
         self.addButton.Bind(wx.EVT_BUTTON, self.OnAddBill)
 
     def OnAddBill(self,e):
+        if IntValidator.valid(self.apartamentNumber.GetValue(),0,99) == False:
+            dlg = wx.MessageDialog(None, "Invalid input!", "Info", wx.OK | wx.ICON_INFORMATION)
+            dlg.ShowModal()
+            dlg.Destroy()
+            return
+        if IntValidator.valid(self.billCost.GetValue(),0,10000) == False:
+            dlg = wx.MessageDialog(None, "Invalid input!", "Info", wx.OK | wx.ICON_INFORMATION)
+            dlg.ShowModal()
+            dlg.Destroy()
+            return
+        
         apNumber = int(self.apartamentNumber.GetValue())
         billCost=int(self.billCost.GetValue())
         billType=self.billType.GetCurrentSelection()+1

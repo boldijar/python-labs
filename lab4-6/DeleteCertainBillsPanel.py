@@ -1,6 +1,7 @@
 import wx
 from apartament_controller import ApartamentController
 from bill_type import BillType
+from validator import IntValidator
 
 class DeleteCertainBillsPanel(wx.Panel):
 

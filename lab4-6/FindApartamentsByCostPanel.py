@@ -1,6 +1,6 @@
 import wx
 from apartament_controller import ApartamentController
-
+from validator import IntValidator
 
 class FindApartamentsByCostPanel(wx.Panel):
 
@@ -14,6 +14,11 @@ class FindApartamentsByCostPanel(wx.Panel):
         self.addButton.Bind(wx.EVT_BUTTON, self.OnClick)
 
     def OnClick(self,e):
+        if IntValidator.valid(self.cost.GetValue(),0,10000) == False:
+            dlg = wx.MessageDialog(None, "Invalid input!", "Info", wx.OK | wx.ICON_INFORMATION)
+            dlg.ShowModal()
+            dlg.Destroy()
+            return
         cost = int(self.cost.GetValue())
         dlg = wx.MessageDialog(None, "Result:\n"+self.apartamentController.getApartamentsWithCostGreatherThanAsString(cost), "Info", wx.OK | wx.ICON_INFORMATION)
         dlg.ShowModal()

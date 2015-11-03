@@ -21,9 +21,10 @@ The every other integer value must be in [0,10000]
 * you can delete all bills from a certain apartament, you set the id that you want.
 * you can delete some certain bills from all apartaments. Let's say that we want to delete all bills that are for the water, from all apartaments. We can do that by only choosing which type we need.
 * you can find out all apartaments with the cost (sum of all bills) greather than some provided number, you'll see a dialog with a list of items.
-
-
-
+* you can delete apartament bills in range 
+* you can clear selected bills of all apartaments
+* you can get the cost of all apartaments certain bills
+* you can undo the last modification
 
 ### Tehnical details
 
