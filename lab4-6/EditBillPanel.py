@@ -32,7 +32,12 @@ class EditBillPanel(wx.Panel):
             dlg.ShowModal()
             dlg.Destroy()
             return
-        if IntValidator.valid(self.self.billId.GetValue(),0,10000) == False:
+        if IntValidator.valid(self.billId.GetValue(),0,10000) == False:
+            dlg = wx.MessageDialog(None, "Invalid input!", "Info", wx.OK | wx.ICON_INFORMATION)
+            dlg.ShowModal()
+            dlg.Destroy()
+            return
+        if IntValidator.valid(self.billCost.GetValue(),0,10000) == False:
             dlg = wx.MessageDialog(None, "Invalid input!", "Info", wx.OK | wx.ICON_INFORMATION)
             dlg.ShowModal()
             dlg.Destroy()
