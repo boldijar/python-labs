@@ -88,3 +88,19 @@ class Controller:
             return False
         movie.rentedClientId = None
         return True
+
+    def getSortedClientsByMoviesRented(self):
+        self.repository.clients.sort(key = lambda x: x.rentedBooksCount,reverse = True)
+        return self.repository.clients
+
+    def getFirst30PerCentClients(self):
+        sortedClients=self.getSortedClientsByMoviesRented()
+        list = []
+        totalClients = len(self.repository.clients)
+        count = int(30/100.0*totalClients)
+        for i in range(0,count):
+            list.append(sortedClients[i])
+        return list
+            
+
+    

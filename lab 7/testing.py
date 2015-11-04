@@ -106,5 +106,40 @@ class TestController(unittest.TestCase):
         self.assertEqual(controller.unRentMovie(movie1.id),True)
         self.assertEqual(controller.unRentMovie(1235),False)
         
+
+    def testSortedClients(self):
+        controller = Controller()
+        movie1 = controller.addMovie("mov","12345","drama")
+        movie2 = controller.addMovie("mov3","12345","drama")
+        movie3 = controller.addMovie("mov","12345","drama")
+        movie4 = controller.addMovie("mov3","12345","drama")
+        client1 = controller.addClient("Paul","123451")
+        client2 = controller.addClient("Paula","1234511")
+        client3 = controller.addClient("Paul","123451")
+        client4 = controller.addClient("Paula","1234511")
+        controller.rentMovie(client1.id,movie1.id)
+        controller.rentMovie(client2.id,movie2.id)
+        controller.rentMovie(client2.id,movie3.id)
+        self.assertEqual(controller.getSortedClientsByMoviesRented()[0].id,client2.id)
+
+    def testFirst30Clients(self):
+        controller = Controller()
+        movie1 = controller.addMovie("mov","12345","drama")
+        movie2 = controller.addMovie("mov3","12345","drama")
+        movie3 = controller.addMovie("mov","12345","drama")
+        movie4 = controller.addMovie("mov3","12345","drama")
+        client1 = controller.addClient("Paul","123451")
+        client2 = controller.addClient("Paula","1234511")
+        client3 = controller.addClient("Paul","123451")
+        client4 = controller.addClient("Paula","1234511")
+        controller.rentMovie(client1.id,movie1.id)
+        controller.rentMovie(client3.id,movie4.id)
+        controller.rentMovie(client2.id,movie2.id)
+        controller.rentMovie(client2.id,movie3.id)
+        self.assertEqual(controller.getFirst30PerCentClients()[0].id,client2.id)
+        self.assertEqual(len(controller.getFirst30PerCentClients()),1)
+
+   
+    
 if __name__ == '__main__':
     unittest.main()
