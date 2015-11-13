@@ -89,6 +89,10 @@ class Controller:
         movie.rentedClientId = None
         return True
 
+    def getSortedMoviesByRentedTimes(self):
+        self.repository.movies.sort(key = lambda x: x.rentedTimes, reverse = True)
+        return self.repository.movies
+    
     def getSortedClientsByMoviesRented(self):
         self.repository.clients.sort(key = lambda x: x.rentedBooksCount,reverse = True)
         return self.repository.clients
