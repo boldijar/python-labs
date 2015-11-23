@@ -5,45 +5,6 @@ class Controller:
     def __init__(self):
         self.repository = Repository()
 
-    def addClient(self,name,cnp):
-        client = Client(name,cnp)
-        self.repository.clients.append(client)
-        return client
-
-    def addMovie(self,title,description,genre):
-        movie = Movie(title,description,genre)
-        self.repository.movies.append(movie)
-        return movie
-
-    def deleteClient(self,clientId):
-        somethingWasDeleted = False
-        for client in self.repository.clients:
-            if client.id == clientId:
-                self.repository.clients.remove(client)
-                somethingWasDeleted = True
-        return somethingWasDeleted
-
-    def deleteMovie(self,movieId):
-        somethingWasDeleted = False
-        for movie in self.repository.movies:
-            if movie.id == movieId:
-                self.repository.movies.remove(movie)
-                somethingWasDeleted = True
-        return somethingWasDeleted
-
-    def updateClient(self,clientId,name,cnp):
-        for client in self.repository.clients:
-            if client.id == clientId:
-                client.name = name
-                client.cnp = cnp
-
-    def updateMovie(self,movieId,title,description,genre):
-        for movie in self.repository.movies:
-            if movie.id == movieId:
-                movie.title = title
-                movie.description = description
-                movie.genre = genre
-
     def searchForMovie(self,movieTitle):
         for movie in self.repository.movies:
             if movie.title == movieTitle:

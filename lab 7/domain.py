@@ -1,5 +1,4 @@
-movieId = 0
-clientId = 0
+
 
 class Movie:
 
@@ -9,9 +8,7 @@ class Movie:
         self.genre = genre
         self.rentedTimes = 0
         self.rentedClientId = None
-        global movieId
-        self.id = movieId
-        movieId = movieId + 1
+    
 
 class Client:
 
@@ -19,6 +16,4 @@ class Client:
         self.name = name
         self.cnp = cnp
         self.rentedBooksCount = 0
-        global clientId
-        self.id = clientId
-        clientId = clientId + 1
+    
