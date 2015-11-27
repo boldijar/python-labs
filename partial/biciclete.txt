@@ -1,0 +1,7 @@
+1,Mountain Bike,100.0
+3,Bicicleta lui Vancea,140.0
+4,Cross bike,140.0
+5,Bmxul lui alex,95.0
+6,Bicicleta ta furata de tigani,112.0
+8,Tricicleta,140.0
+9,Bicicleta stricata,5.0
