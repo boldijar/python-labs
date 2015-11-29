@@ -1,6 +1,7 @@
 import unittest
 from controller import *
 from domain import *
+import json
 class TestController(unittest.TestCase):
     
     
@@ -158,6 +159,8 @@ class TestController(unittest.TestCase):
         controller.unRentMovie(movie3.id)
         controller.rentMovie(client1.id,movie3.id)
         self.assertEqual(controller.getSortedMoviesByRentedTimes()[0].id,movie3.id)
+        print json.dumps(controller.repository, default=lambda o: o.__dict__,indent=4, separators=(',', ': '))
+    
 
    
     

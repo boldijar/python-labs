@@ -1,4 +1,5 @@
 import json
+from collections import namedtuple
 from domain import *
 class Repository:
     
@@ -15,7 +16,16 @@ class Repository:
         return file.read()
 
     def load(self):
-        self.__dict__ = json.loads(self.getJsonDb())
+        db = json.loads(self.getJsonDb(), object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))
+        self.movieId = db.movieId
+        self.clientId = db.clientId
+        self.movies = db.movies
+        self.clients = db.clients
+
+    @classmethod
+    def from_json(cls, json_str):
+        json_dict = json.loads(json_str)
+        return cls(**json_dict)
     
     def __init__(self):
         self.clients = []
