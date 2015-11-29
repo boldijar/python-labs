@@ -16,17 +16,27 @@ def show_clients():
 def add_movie():
     input = raw_input('Follow this pattern: Title,Description,genre : ')
     fields = input.split(',')
+    if len(fields) != 3 :
+        print 'Invalid input'
+        return;
     controller.repository.addMovie(fields[0],fields[1],fields[2])
     controller.repository.save()
 
 def add_client():
     input = raw_input('Follow this pattern: Name,Cnp : ')
     fields = input.split(',')
+    if len(fields) != 2 :
+        print 'Invalid input'
+        return;
     controller.repository.addClient(fields[0],fields[1])
     controller.repository.save()
 
 def delete_client():
-    id = int(input('Client id: '))
+    id = raw_input('Client id: ')
+    if validateInt(id) == False:
+        print 'Invalid id'
+        return
+    id=int(id)
     deleted = controller.repository.deleteClient(id)
     if deleted == True:
         print 'Client deleted.'
@@ -35,7 +45,11 @@ def delete_client():
         print 'No client found'
 
 def delete_movie():
-    id = int(input('Movie id: '))
+    id = raw_input('Movie id: ')
+    if validateInt(id) == False:
+        print 'Invalid id'
+        return
+    id=int(id)
     deleted = controller.repository.deleteMovie(id)
     if deleted == True:
         print 'Movie deleted.'
@@ -61,8 +75,20 @@ def search_movie():
         print 'Id: ' + str(movie.id)+ ' Title: ' + movie.title + ' Description: ' + movie.description + ' Genre: '+movie.genre
 
 def rent_movie():
-    clientId = int(input('Client id: '))
-    movieId= int(input('Movie id: '))
+     
+
+    clientId = raw_input('Client id: ')
+    if validateInt(clientId) == False:
+        print 'Invalid client id'
+        return
+    clientId=int(clientId)
+
+    movieId = raw_input('Movie id: ')
+    if validateInt(movieId) == False:
+        print 'Invalid movie id'
+        return
+    movieId=int(movieId)
+    
     result = controller.rentMovie(clientId,movieId)
     if result ==0 :
         print 'At least one of the ids are not valid'
@@ -94,7 +120,16 @@ def movies_sorted_by_rent():
         print 'Id: ' + str(movie.id)+ ' Title: ' + movie.title + ' Description: ' + movie.description + ' Genre: '+movie.genre
 
     
-        
+def validateInt(text):
+    try:
+        text=int(text)
+        return True
+    except:
+        return False
+
+def validateString(text,count):
+    list = text.split(',')
+    return len(list) == count
         
 def show_menu():
     print '0) Quit'
@@ -110,7 +145,13 @@ def show_menu():
     print '10) Unrent movie'
     print '11) First 30 percent of clients with most rented books'
     print '12) Movies sorted by rented times'
-    return int(input('Option: '))
+
+    inp=raw_input('Option: ')
+    if validateInt(inp) == False:
+        print 'Invalid option'
+        return -1
+    return  int(inp)
+  
 
 while True:
     option = show_menu()

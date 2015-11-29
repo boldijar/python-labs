@@ -25,10 +25,10 @@
             "id": 1
         },
         {
-            "rentedClientId": null,
+            "rentedClientId": 2,
             "description": "12345",
             "title": "Nicusor Braila Movie",
-            "rentedTimes": 5,
+            "rentedTimes": 6,
             "genre": "drama",
             "id": 3
         },
@@ -76,12 +76,6 @@
     "clients": [
         {
             "rentedBooksCount": 2,
-            "name": "Leonard",
-            "cnp": "123451",
-            "id": 4
-        },
-        {
-            "rentedBooksCount": 1,
             "name": "Dan",
             "cnp": "123451",
             "id": 2
