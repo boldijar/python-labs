@@ -33,22 +33,22 @@ class Controller:
         movie = self.searchForMovieById(movieId)
         client = self.searchForClientById(clientId)
         if movie == None or client == None:
-            return False
+            return 0
         if movie.rentedClientId != None:
-            return False
+            return 1
         movie.rentedTimes = movie.rentedTimes + 1
         client.rentedBooksCount = client.rentedBooksCount +1
         movie.rentedClientId = client.id
-        return True
+        return 2
 
     def unRentMovie(self,movieId):
         movie = self.searchForMovieById(movieId)
         if movie == None:
-            return False
+            return 0
         if movie.rentedClientId == None:
-            return False
+            return 1
         movie.rentedClientId = None
-        return True
+        return 2
 
     def getSortedMoviesByRentedTimes(self):
         self.repository.movies.sort(key = lambda x: x.rentedTimes, reverse = True)

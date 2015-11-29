@@ -1,0 +1,64 @@
+{
+    "movies": [
+        {
+            "rentedClientId": 4,
+            "description": "12345",
+            "title": "Titanic",
+            "rentedTimes": 2,
+            "genre": "drama",
+            "id": 2
+        },
+        {
+            "rentedClientId": null,
+            "description": "12345",
+            "title": "Filmuletu",
+            "rentedTimes": 1,
+            "genre": "drama",
+            "id": 4
+        },
+        {
+            "rentedClientId": null,
+            "description": "12345",
+            "title": "Avengers",
+            "rentedTimes": 1,
+            "genre": "drama",
+            "id": 1
+        },
+        {
+            "rentedClientId": null,
+            "description": "12345",
+            "title": "Nicusor Braila Movie",
+            "rentedTimes": 0,
+            "genre": "drama",
+            "id": 3
+        }
+    ],
+    "clients": [
+        {
+            "rentedBooksCount": 2,
+            "name": "Leonard",
+            "cnp": "123451",
+            "id": 4
+        },
+        {
+            "rentedBooksCount": 2,
+            "name": "Paula",
+            "cnp": "1234511",
+            "id": 1
+        },
+        {
+            "rentedBooksCount": 0,
+            "name": "Dan",
+            "cnp": "123451",
+            "id": 2
+        },
+        {
+            "rentedBooksCount": 0,
+            "name": "Violeta",
+            "cnp": "1234511",
+            "id": 3
+        }
+    ],
+    "movieId": 5,
+    "clientId": 5
+}

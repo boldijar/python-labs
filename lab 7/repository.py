@@ -5,6 +5,9 @@ class Repository:
     
     def toJson(self):
         return json.dumps(self, default=lambda o: o.__dict__,indent=4, separators=(',', ': '))
+
+    def objToJson(self,obj):
+        return json.dumps(obj, default=lambda o: o.__dict__,indent=4, separators=(',', ': '))
     
     def save(self):
         file = open("repository.db", "w")
@@ -19,8 +22,23 @@ class Repository:
         db = json.loads(self.getJsonDb(), object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))
         self.movieId = db.movieId
         self.clientId = db.clientId
-        self.movies = db.movies
-        self.clients = db.clients
+        self.movies=[]
+        self.clients=[]
+        loadedMovies=db.movies
+        for loadedMovie in loadedMovies:
+            movie = Movie(loadedMovie.title,loadedMovie.description,loadedMovie.genre)
+            movie.rentedTimes=loadedMovie.rentedTimes
+            movie.rentedClientId = loadedMovie.rentedClientId
+            movie.id = loadedMovie.id
+            self.movies.append(movie)
+            
+        loadedClients=db.clients
+        for loadedClient in loadedClients:
+            client = Client(loadedClient.name,loadedClient.cnp)
+            client.rentedBooksCount = loadedClient.rentedBooksCount
+            client.id = loadedClient.id
+            self.clients.append(client)
+
 
     @classmethod
     def from_json(cls, json_str):

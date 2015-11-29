@@ -1,7 +1,7 @@
 {
     "movies": [
         {
-            "rentedClientId": 0,
+            "rentedClientId": 4,
             "description": "12345",
             "title": "Titanic",
             "rentedTimes": 2,
@@ -14,7 +14,7 @@
             "title": "Filmuletu",
             "rentedTimes": 1,
             "genre": "drama",
-            "id": 0
+            "id": 4
         },
         {
             "rentedClientId": null,
@@ -28,9 +28,49 @@
             "rentedClientId": null,
             "description": "12345",
             "title": "Nicusor Braila Movie",
-            "rentedTimes": 0,
+            "rentedTimes": 5,
             "genre": "drama",
             "id": 3
+        },
+        {
+            "rentedClientId": 2,
+            "description": "Cool",
+            "title": "Nice",
+            "rentedTimes": 1,
+            "genre": "Genre",
+            "id": 5
+        },
+        {
+            "rentedClientId": null,
+            "description": "Descriere",
+            "title": "Titlu",
+            "rentedTimes": 0,
+            "genre": "Gen",
+            "id": 6
+        },
+        {
+            "rentedClientId": null,
+            "description": "Foarte fain film",
+            "title": "Smecher",
+            "rentedTimes": 0,
+            "genre": "Comedie man",
+            "id": 7
+        },
+        {
+            "rentedClientId": null,
+            "description": "Cool",
+            "title": "Smecherie",
+            "rentedTimes": 0,
+            "genre": "Gen",
+            "id": 8
+        },
+        {
+            "rentedClientId": null,
+            "description": "Descriere",
+            "title": "AltFilm",
+            "rentedTimes": 0,
+            "genre": "Geeen",
+            "id": 9
         }
     ],
     "clients": [
@@ -38,16 +78,10 @@
             "rentedBooksCount": 2,
             "name": "Leonard",
             "cnp": "123451",
-            "id": 0
+            "id": 4
         },
         {
-            "rentedBooksCount": 2,
-            "name": "Paula",
-            "cnp": "1234511",
-            "id": 1
-        },
-        {
-            "rentedBooksCount": 0,
+            "rentedBooksCount": 1,
             "name": "Dan",
             "cnp": "123451",
             "id": 2
@@ -57,8 +91,32 @@
             "name": "Violeta",
             "cnp": "1234511",
             "id": 3
+        },
+        {
+            "rentedBooksCount": 0,
+            "name": "Vasile",
+            "cnp": "123891231",
+            "id": 5
+        },
+        {
+            "rentedBooksCount": 0,
+            "name": "Nume",
+            "cnp": "CNP smecher",
+            "id": 6
+        },
+        {
+            "rentedBooksCount": 0,
+            "name": "Smiley",
+            "cnp": "CNP",
+            "id": 7
+        },
+        {
+            "rentedBooksCount": 0,
+            "name": "Barosan",
+            "cnp": "Smecher",
+            "id": 8
         }
     ],
-    "movieId": 4,
-    "clientId": 4
+    "movieId": 10,
+    "clientId": 9
 }
