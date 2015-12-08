@@ -1,34 +1,39 @@
 from repository import *
 from domain import *
+from pydoc import help
 class Controller:
 
     def __init__(self):
         self.repository = Repository()
 
+    # will search for a movie with the chosen title
     def searchForMovie(self,movieTitle):
         for movie in self.repository.movies:
             if movie.title == movieTitle:
                 return movie
         return None
-
+    # will search for a client with the chosen name
     def searchForClient(self,clientName):
         for client in self.repository.clients:
             if client.name == clientName:
                 return client
         return None
-
+    
+    # will search for a movie by a chosen id
     def searchForMovieById(self,movieId):
         for movie in self.repository.movies:
             if movie.id == movieId:
                 return movie
         return None
 
+    # will search for a client by id
     def searchForClientById(self,clientId):
         for client in self.repository.clients:
             if client.id == clientId:
                 return client
         return None
-    
+
+    #will rent the movie with the selected id, by the client with selected id
     def rentMovie(self,clientId,movieId):
         movie = self.searchForMovieById(movieId)
         client = self.searchForClientById(clientId)
@@ -41,6 +46,7 @@ class Controller:
         movie.rentedClientId = client.id
         return 2
 
+    #will unrent the movie with the id selected
     def unRentMovie(self,movieId):
         movie = self.searchForMovieById(movieId)
         if movie == None:
@@ -50,14 +56,16 @@ class Controller:
         movie.rentedClientId = None
         return 2
 
+    # will sort the movies by how many times was rented, and return them
     def getSortedMoviesByRentedTimes(self):
         self.repository.movies.sort(key = lambda x: x.rentedTimes, reverse = True)
         return self.repository.movies
-    
+
+    # will sort the clients by how many movies they rented
     def getSortedClientsByMoviesRented(self):
         self.repository.clients.sort(key = lambda x: x.rentedBooksCount,reverse = True)
         return self.repository.clients
-
+    # will return first 30% of clients that rented movies.
     def getFirst30PerCentClients(self):
         sortedClients=self.getSortedClientsByMoviesRented()
         list = []

@@ -1,0 +1,4 @@
+Iaurt,3,7
+Oua,10,2
+Branza,1,12
+Sal,1,2

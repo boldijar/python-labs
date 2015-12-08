@@ -9,28 +9,20 @@
             "id": 2
         },
         {
-            "rentedClientId": null,
+            "rentedClientId": 9,
             "description": "12345",
             "title": "Filmuletu",
-            "rentedTimes": 1,
+            "rentedTimes": 2,
             "genre": "drama",
             "id": 4
         },
         {
-            "rentedClientId": null,
+            "rentedClientId": 9,
             "description": "12345",
             "title": "Avengers",
-            "rentedTimes": 1,
+            "rentedTimes": 2,
             "genre": "drama",
             "id": 1
-        },
-        {
-            "rentedClientId": 2,
-            "description": "12345",
-            "title": "Nicusor Braila Movie",
-            "rentedTimes": 6,
-            "genre": "drama",
-            "id": 3
         },
         {
             "rentedClientId": 2,
@@ -41,26 +33,26 @@
             "id": 5
         },
         {
-            "rentedClientId": null,
+            "rentedClientId": 8,
             "description": "Descriere",
             "title": "Titlu",
-            "rentedTimes": 0,
+            "rentedTimes": 1,
             "genre": "Gen",
             "id": 6
         },
         {
-            "rentedClientId": null,
+            "rentedClientId": 8,
             "description": "Foarte fain film",
             "title": "Smecher",
-            "rentedTimes": 0,
+            "rentedTimes": 1,
             "genre": "Comedie man",
             "id": 7
         },
         {
-            "rentedClientId": null,
+            "rentedClientId": 9,
             "description": "Cool",
             "title": "Smecherie",
-            "rentedTimes": 0,
+            "rentedTimes": 1,
             "genre": "Gen",
             "id": 8
         },
@@ -105,12 +97,18 @@
             "id": 7
         },
         {
-            "rentedBooksCount": 0,
+            "rentedBooksCount": 2,
             "name": "Barosan",
             "cnp": "Smecher",
             "id": 8
+        },
+        {
+            "rentedBooksCount": 3,
+            "name": "Paul",
+            "cnp": "12939232",
+            "id": 9
         }
     ],
     "movieId": 10,
-    "clientId": 9
+    "clientId": 10
 }

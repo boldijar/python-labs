@@ -2,22 +2,27 @@ import json
 from collections import namedtuple
 from domain import *
 class Repository:
-    
+
+    # converts this class to json
     def toJson(self):
         return json.dumps(self, default=lambda o: o.__dict__,indent=4, separators=(',', ': '))
 
+    # converts an object to json
     def objToJson(self,obj):
         return json.dumps(obj, default=lambda o: o.__dict__,indent=4, separators=(',', ': '))
-    
+
+    #saves to local json db
     def save(self):
         file = open("repository.db", "w")
         file.write(self.toJson())
         file.close()
 
+    # reads from local json db
     def getJsonDb(self):
         file = open("repository.db", "r")
         return file.read()
 
+    # loads from local json db into object
     def load(self):
         db = json.loads(self.getJsonDb(), object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))
         self.movieId = db.movieId
@@ -44,20 +49,23 @@ class Repository:
     def from_json(cls, json_str):
         json_dict = json.loads(json_str)
         return cls(**json_dict)
-    
+
+    # default constructor
     def __init__(self):
         self.clients = []
         self.movies = []
         self.movieId = 0
         self.clientId = 0
 
+    # adds client
     def addClient(self,name,cnp):
         client = Client(name,cnp)
         client.id = self.clientId;
         self.clientId = self.clientId + 1
         self.clients.append(client)
         return client
-
+    
+    #adds a new movie
     def addMovie(self,title,description,genre):
         movie = Movie(title,description,genre)
         movie.id=self.movieId;
