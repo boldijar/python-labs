@@ -90,10 +90,10 @@ class TestController(unittest.TestCase):
         movie2 = controller.repository.addMovie("mov3","12345","drama")
         client1 = controller.repository.addClient("Paul","123451")
         client2 = controller.repository.addClient("Paula","1234511")
-        self.assertEqual(controller.rentMovie(-100,200),False)
-        self.assertEqual(controller.rentMovie(client1.id,movie1.id),True)
-        self.assertEqual(controller.rentMovie(client1.id,movie1.id),False)
-        self.assertEqual(controller.rentMovie(client1.id,movie2.id),True)
+        self.assertEqual(controller.rentMovie(-100,200),0)
+        self.assertEqual(controller.rentMovie(client1.id,movie1.id),2)
+        self.assertEqual(controller.rentMovie(client1.id,movie1.id),1)
+        self.assertEqual(controller.rentMovie(client1.id,movie2.id),2)
         self.assertEqual(movie1.rentedTimes,1)
         self.assertEqual(client1.rentedBooksCount,2)
         
@@ -104,9 +104,9 @@ class TestController(unittest.TestCase):
         client1 = controller.repository.addClient("Paul","123451")
         client2 = controller.repository.addClient("Paula","1234511")
         controller.rentMovie(client1.id,movie1.id)
-        self.assertEqual(controller.unRentMovie(movie2.id),False)
-        self.assertEqual(controller.unRentMovie(movie1.id),True)
-        self.assertEqual(controller.unRentMovie(1235),False)
+        self.assertEqual(controller.unRentMovie(movie2.id),1)
+        self.assertEqual(controller.unRentMovie(movie1.id),2)
+        self.assertEqual(controller.unRentMovie(1235),0)
         
 
     def testSortedClients(self):

@@ -21,17 +21,33 @@ class Controller:
     
     # will search for a movie by a chosen id
     def searchForMovieById(self,movieId):
-        for movie in self.repository.movies:
-            if movie.id == movieId:
-                return movie
-        return None
+        return self.searchForMovieByIdRecursive(0,movieId)
+        #for movie in self.repository.movies:
+        #   if movie.id == movieId:
+        #        return movie
+        #return None
+
+    def searchForMovieByIdRecursive(self,index,movieId):
+        if index == len(self.repository.movies):
+            return None
+        if self.repository.movies[index].id == movieId:
+            return self.repository.movies[index]
+        return self.searchForMovieByIdRecursive(index + 1, movieId)
 
     # will search for a client by id
     def searchForClientById(self,clientId):
-        for client in self.repository.clients:
-            if client.id == clientId:
-                return client
-        return None
+        return self.searchForClientByIdRecursive(0,clientId)
+        #for client in self.repository.clients:
+        #    if client.id == clientId:
+        #        return client
+        #return None
+
+    def searchForClientByIdRecursive(self,index,clientId):
+        if index == len(self.repository.clients):
+            return None
+        if self.repository.clients[index].id == clientId:
+            return self.repository.clients[index]
+        return self.searchForClientByIdRecursive(index + 1, clientId)
 
     #will rent the movie with the selected id, by the client with selected id
     def rentMovie(self,clientId,movieId):
