@@ -65,6 +65,18 @@ def search_client():
     else:
         print 'Id:'+str(client.id)+' Name:'+client.name + ' CNP: '+client.cnp;
 
+def sort():
+    print 'Read numbers untill 0: '
+    list = []
+    while True:
+        value = raw_input('')
+        value = int(value)
+        if value == 0:
+            print controller.sort(list)
+            return
+        list.append(value)
+        
+            
 
 def search_movie():
     title = raw_input('Movie title: ')
@@ -145,7 +157,7 @@ def show_menu():
     print '10) Unrent movie'
     print '11) First 30 percent of clients with most rented books'
     print '12) Movies sorted by rented times'
-
+    print '13) Sort array'
     inp=raw_input('Option: ')
     if validateInt(inp) == False:
         print 'Invalid option'
@@ -181,6 +193,7 @@ while True:
         clients_30percent()
     if option ==12:
         movies_sorted_by_rent()
-        
+    if option == 13:
+        sort()
 
 #controller.repository.save()

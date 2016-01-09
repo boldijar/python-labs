@@ -6,6 +6,26 @@ class Controller:
     def __init__(self):
         self.repository = Repository()
 
+    def sort(self,array):
+        less = []
+        equal = []
+        greater = []
+
+        if len(array) > 1:
+            pivot = array[0]
+            for x in array:
+                if x < pivot:
+                    less.append(x)
+                if x == pivot:
+                    equal.append(x)
+                if x > pivot:
+                    greater.append(x)
+            # Don't forget to return something!
+            return self.sort(less)+equal+self.sort(greater)  # Just use the + operator to join lists
+        # Note that you want equal ^^^^^ not pivot
+        else:  # You need to hande the part at the end of the recursion - when you only have one element in your array, just return the array.
+            return array
+        
     # will search for a movie with the chosen title
     def searchForMovie(self,movieTitle):
         for movie in self.repository.movies:
@@ -90,6 +110,8 @@ class Controller:
         for i in range(0,count):
             list.append(sortedClients[i])
         return list
-            
+
+c = Controller()
+print (c.sort([5,3,1,2,3]))
 
     
