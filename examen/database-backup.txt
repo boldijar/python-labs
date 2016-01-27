@@ -1,0 +1,2 @@
+En,work,Ro,lucreaza
+En,eat,Ro,mananca

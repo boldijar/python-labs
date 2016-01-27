@@ -1,0 +1,8 @@
+En,work,Ro,lucreaza
+En,walk,Ro,merg
+Ro,rom,En,man
+Ro,destept,En,smart
+Ro,foarte,En,very
+Ro,pepene,En,watermelon
+Ro,caine,En,dog
+Ro,pisica,En,cat
